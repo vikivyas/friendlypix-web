@@ -20,7 +20,7 @@ const admin = require('firebase-admin');
 try {
   admin.initializeApp();
 } catch (e) {}
-const mkdirp = require('mkdirp-promise');
+const mkdirp = require('mkdirp');
 const Vision = require('@google-cloud/vision');
 const vision = new Vision();
 const spawn = require('child-process-promise').spawn;
