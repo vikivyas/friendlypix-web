@@ -21,11 +21,11 @@ function isOwner(uid) {
 
 service firebase.storage {
   match /b/{bucket}/o {
-    match /{userId}/thumb/{postId}/{fileName} {
+    match /thumb/{userId}/{postId}/{fileName} {
       allow read;
       allow write: if isAdmin() || isOwner(userId) && (isResourceBeingDeleted() || isImageBelowMaxSize(1));
     }
-    match /{userId}/full/{postId}/{fileName} {
+    match /full/{userId}/{postId}/{fileName} {
       allow read;
       allow write: if isAdmin() || isOwner(userId) && (isResourceBeingDeleted() || isImageBelowMaxSize(5));
     }
